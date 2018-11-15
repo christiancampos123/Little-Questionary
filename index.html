@@ -90,10 +90,10 @@
 
       /* Step 4: Your CSS code goes here */
     
-    .color_swatch{
-        height: 50px;
-        width: 50px;
-    }
+.color_swatch{
+    height: 50px;
+    width: 50px;
+}
 
 
     </style>
@@ -109,9 +109,9 @@
             $("#selectable").selectable();
             //$(".ui-selected").text(); //Just in case that you need to take the text.
 
-            /* Step 3: Your js code goes here */
-            $("#sortable").sortable();
-            $("#sortable").disableSelection();
+            /* important to disable the text selection and to make them sortable */
+            $("#sortable").sortable();      //sortable
+            $("#sortable").disableSelection();  //no text selection
 
             /* Step 4: Your js code goes here */
             $(document).tooltip()
@@ -125,11 +125,11 @@
                 content: function () {
                     // jQuery uses "this" to refer to the element that triggered the event
                     var element = $(this);
-                    if (element.is("[title]") == true && element != "number") {
+                    if (element.is("[title]") == true) {
                         return element.attr("title");
                     }
                     if (element.is("[class]")) {
-                        if (element.hasClass("color")) {
+                        if (element.hasClass("color")) {//it means == true
                             var text = element.text(); //in this case, will be the desired color
                             return "<div class='color_swatch' style='background:" + text + "'></div>";
                         }
@@ -167,7 +167,7 @@
 
     <div id="color_input">
       
-        <!-- Step 3: Your HTML here -->
+        <!-- Ranking of colours -->
         <h3>Rank the colors from your most favorite to your least favorite:</h3>
 
         <ul id="sortable">
